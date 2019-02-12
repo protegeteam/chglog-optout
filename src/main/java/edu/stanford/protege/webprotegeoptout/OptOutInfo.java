@@ -3,6 +3,7 @@ package edu.stanford.protege.webprotegeoptout;
 import org.springframework.core.style.ToStringCreator;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Stanford Center for Biomedical Informatics Research
  * 2019-02-11
  */
+@Document(collection = "opt-out-info")
 @TypeAlias("OptOutInfo")
 public class OptOutInfo {
 
