@@ -13,7 +13,7 @@ import java.util.List;
  * Stanford Center for Biomedical Informatics Research
  * 2019-02-11
  */
-@Document(collection = "opt-out-info")
+@Document(collection = "OptOutInfo")
 @TypeAlias("OptOutInfo")
 public class OptOutInfo {
 
@@ -23,6 +23,8 @@ public class OptOutInfo {
     private String userId;
 
     private String emailAddress;
+
+    private String viewedAt;
 
     private String comment;
 
@@ -34,10 +36,12 @@ public class OptOutInfo {
     public OptOutInfo(String id,
                       String userId,
                       String emailAddress,
+                      String comment,
                       List<OptOutItem> optOutItemList) {
         this.id = id;
         this.userId = userId;
         this.emailAddress = emailAddress;
+        this.comment = comment;
         this.optOutItemList = optOutItemList;
     }
 
@@ -67,6 +71,14 @@ public class OptOutInfo {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public String getViewedAt() {
+        return viewedAt;
+    }
+
+    public void setViewedAt(String viewedAt) {
+        this.viewedAt = viewedAt;
     }
 
     public void setOptOutItemList(List<OptOutItem> optOutItemList) {

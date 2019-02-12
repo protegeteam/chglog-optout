@@ -23,9 +23,9 @@ public class WebprotegeOptoutApplication implements CommandLineRunner {
 		List<OptOutItem> optOutItemList = new ArrayList<>();
 		optOutItemList.add(new OptOutItem("abcde", "Test Project", false));
 		optOutItemList.add(new OptOutItem("fkdkd", "Test Project 2", false));
-		var optOutInfo = new OptOutInfo("123", "M Horridge", "matthew.horridge@stanford.edu", optOutItemList);
+		var optOutInfo = new OptOutInfo("123", "M Horridge", "matthew.horridge@stanford.edu", "", optOutItemList);
 		repository.save(optOutInfo);
-		var optOutInfo2 = new OptOutInfo("234", "Joe Bloggs", "joe.bloggs@google.com", optOutItemList);
+		var optOutInfo2 = new OptOutInfo("234", "Joe Bloggs", "joe.bloggs@google.com", "", optOutItemList);
 		repository.save(optOutInfo2);
 	}
 }

@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -33,6 +38,8 @@ public class OptOutController {
     public String projects(Model model, @PathVariable(name = "id") String id) {
         var outInfoQueryResult = repository.findById(id);
         var optOutInfo = outInfoQueryResult.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        optOutInfo.setViewedAt(DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now()));
+        repository.save(optOutInfo);
         model.addAttribute("optOutInfo", optOutInfo);
         return "optout";
     }
