@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -22,6 +23,8 @@ public class OptOutInfo {
     private String userId;
 
     private String emailAddress;
+
+    private String comment;
 
     private List<OptOutItem> optOutItemList;
 
@@ -70,11 +73,20 @@ public class OptOutInfo {
         this.optOutItemList = optOutItemList;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     @Override
     public String toString() {
         return new ToStringCreator("OptOutInfo")
                 .append("userId", userId)
                 .append("emailAddress", emailAddress)
+                .append("comment", comment)
                 .append("optOutItemList", optOutItemList)
                 .toString();
     }
