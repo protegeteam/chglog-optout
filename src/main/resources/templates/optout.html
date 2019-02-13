@@ -91,10 +91,11 @@
                 </td>
                 <td>
                     <div class="form-check">
+                        <label class="form-check-label">
                         <input type="checkbox" class="form-check-input"
                                 th:field="*{projects[__${projectStat.index}__].optOut}"
                                 th:value="${project.optOut}"/>
-                        <label class="form-check-label">Opt-out</label>
+                        Opt-out</label>
                     </div>
                 </td>
             </tr>
