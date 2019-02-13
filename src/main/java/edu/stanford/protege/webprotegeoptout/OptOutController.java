@@ -50,6 +50,11 @@ public class OptOutController {
         return "optout";
     }
 
+    @GetMapping("/optout/confirmation")
+    public String confirmation() {
+        return "confirmation";
+    }
+
     private void updateViewedAtDateTime(OptOutInfo optOutInfo) {
         optOutInfo.setViewedAt(DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now()));
         repository.save(optOutInfo);
@@ -58,6 +63,6 @@ public class OptOutController {
     @PostMapping("/optout")
     public String optoutSubmit(OptOutInfo optOutInfo) {
         repository.save(optOutInfo);
-        return "redirect:/confirmation.html";
+        return "redirect:/optout/confirmation";
     }
 }
