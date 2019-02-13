@@ -74,22 +74,22 @@
             </tr>
 
             </thead>
-            <tr th:each="projectInfo: *{optOutItemList}">
+            <tr th:each="project: *{projects}">
                 <td>
-                    <span th:text="${projectInfo.projectName}"></span>
-                    <input type="hidden" th:name="|optOutItemList[${projectInfoStat.index}].projectName|"
-                           th:value="${projectInfo.projectName}">
+                    <span th:text="${project.projectName}"></span>
+                    <input type="hidden" th:field="*{projects[__${projectStat.index}__].projectName}"
+                           th:value="${project.projectName}">
                 </td>
                 <td>
-                    <span th:text="${projectInfo.projectId}"></span>
-                    <input type="hidden" th:field="*{optOutItemList[__${projectInfoStat.index}__].projectId}"
-                           th:value="${projectInfo.projectId}">
+                    <span th:text="${project.projectId}"></span>
+                    <input type="hidden" th:field="*{projects[__${projectStat.index}__].projectId}"
+                           th:value="${project.projectId}">
 
                 </td>
                 <td>
                     <input type="checkbox" class="checkbox"
-                           th:field="*{optOutItemList[__${projectInfoStat.index}__].optOut}"
-                           th:value="${projectInfo.optOut}"/>
+                           th:field="*{projects[__${projectStat.index}__].optOut}"
+                           th:value="${project.optOut}"/>
                 </td>
             </tr>
         </table>

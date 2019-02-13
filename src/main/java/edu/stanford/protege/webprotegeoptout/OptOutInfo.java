@@ -5,7 +5,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -28,7 +27,7 @@ public class OptOutInfo {
 
     private String comment;
 
-    private List<OptOutItem> optOutItemList;
+    private List<OptOutItem> projects;
 
     public OptOutInfo() {
     }
@@ -37,12 +36,12 @@ public class OptOutInfo {
                       String userId,
                       String emailAddress,
                       String comment,
-                      List<OptOutItem> optOutItemList) {
+                      List<OptOutItem> projects) {
         this.id = id;
         this.userId = userId;
         this.emailAddress = emailAddress;
         this.comment = comment;
-        this.optOutItemList = optOutItemList;
+        this.projects = projects;
     }
 
     public String getId() {
@@ -57,8 +56,8 @@ public class OptOutInfo {
         return emailAddress;
     }
 
-    public List<OptOutItem> getOptOutItemList() {
-        return optOutItemList;
+    public List<OptOutItem> getProjects() {
+        return projects;
     }
 
     public void setId(String id) {
@@ -81,8 +80,8 @@ public class OptOutInfo {
         this.viewedAt = viewedAt;
     }
 
-    public void setOptOutItemList(List<OptOutItem> optOutItemList) {
-        this.optOutItemList = optOutItemList;
+    public void setProjects(List<OptOutItem> projects) {
+        this.projects = projects;
     }
 
     public String getComment() {
@@ -99,7 +98,7 @@ public class OptOutInfo {
                 .append("userId", userId)
                 .append("emailAddress", emailAddress)
                 .append("comment", comment)
-                .append("optOutItemList", optOutItemList)
+                .append("projects", projects)
                 .toString();
     }
 }
