@@ -2,6 +2,9 @@ package edu.stanford.protege.webprotegeoptout;
 
 import org.springframework.core.style.ToStringCreator;
 
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -68,6 +71,11 @@ public class ProjectInfo {
 
     public void setModifiedAt(String modifiedAt) {
         this.modifiedAt = modifiedAt;
+    }
+
+    public String getFormattedModifiedAt() {
+        var dateTimeFormatter = DateTimeFormatter.ofPattern("MMMM dd yyyy");
+        return OffsetDateTime.parse(getModifiedAt()).format(dateTimeFormatter);
     }
 
     @Override
