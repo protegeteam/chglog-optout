@@ -86,8 +86,9 @@
                            th:value="${project.projectName}">
                     <!--ProjectId-->
                     <div>
-                        <small class="text-muted" th:text="'Project Id: ' + ${project.projectId}"></small>
-                    </div><input type="hidden" th:field="*{projects[__${projectStat.index}__].projectId}"
+                        <small class="text-muted" th:text="'Created: ' + ${project.getFormattedCreatedAt()}"></small>
+                    </div>
+                    <input type="hidden" th:field="*{projects[__${projectStat.index}__].projectId}"
                            th:value="${project.projectId}">
                 </td>
                 <td>

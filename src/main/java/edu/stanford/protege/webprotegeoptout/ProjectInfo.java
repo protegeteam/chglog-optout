@@ -78,6 +78,11 @@ public class ProjectInfo {
         return OffsetDateTime.parse(getModifiedAt()).format(dateTimeFormatter);
     }
 
+    public String getFormattedCreatedAt() {
+        var dateTimeFormatter = DateTimeFormatter.ofPattern("MMMM d yyyy");
+        return OffsetDateTime.parse(getCreatedAt()).format(dateTimeFormatter);
+    }
+
     @Override
     public String toString() {
         return new ToStringCreator("ProjectInfo").append("projectId", projectId).append("projectName", projectName).append("optOut", optOut).toString();
