@@ -77,7 +77,7 @@
             </thead>
             <tr th:each="project: *{projects}">
                 <td>
-                    <span th:text="${project.projectName}"></span>
+                    <a target="_blank" th:href="|https://webprotege.stanford.edu/#projects/${project.projectId}/edit/Classes|" th:text="${project.projectName}"></a>
                     <input type="hidden" th:field="*{projects[__${projectStat.index}__].projectName}"
                            th:value="${project.projectName}">
                 </td>
