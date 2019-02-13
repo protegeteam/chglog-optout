@@ -74,7 +74,7 @@ public class ProjectInfo {
     }
 
     public String getFormattedModifiedAt() {
-        var dateTimeFormatter = DateTimeFormatter.ofPattern("MMMM dd yyyy");
+        var dateTimeFormatter = DateTimeFormatter.ofPattern("MMMM d yyyy");
         return OffsetDateTime.parse(getModifiedAt()).format(dateTimeFormatter);
     }
 
