@@ -70,8 +70,8 @@
         <table id="projectsList" class="table table-sm">
             <thead class="thead-light">
             <tr>
-                <th>Project Name</th>
-                <th>Project Id</th>
+                <th>Project name</th>
+                <th>Last modified</th>
                 <th>Included/Excluded</th>
             </tr>
 
@@ -91,7 +91,7 @@
                            th:value="${project.projectId}">
                 </td>
                 <td>
-
+                    <span th:text="${project.getFormattedModifiedAt()}"></span>
                     <!--Created At-->
                     <input type="hidden" th:field="*{projects[__${projectStat.index}__].createdAt}"
                            th:value="${project.createdAt}">
