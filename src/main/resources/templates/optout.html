@@ -42,11 +42,6 @@
     your
     WebProtégé projects.
 </p>
-<p>
-    Please check that your user name and your email address are correct. <strong>Select the projects
-    for which you do not want a de-identified and obfuscated version of the project change log</strong> to appear in the published
-    dataset.
-</p>
 
 <form class="form-vertical" method="post" action="#" th:action="@{/optout}" th:object="${optOutInfo}">
 
@@ -63,7 +58,7 @@
     </div>
     <div class="form-group">
         <label for="projectsList">Your Projects</label>
-        <p>Use the check boxes to select some or all of your projects.  Selected projects will be excluded from the dataset that we will publish.</p>
+        <p>Please use the radio buttons to specify the projects that should be excluded from the WebProtege change history logs dataset.  Remember, only de-identified obfuscated versions of the change histories will be used for those projects that you allow us to include.  Further details are available here (opens in a new tab).</p>
         <div class="form-group">
             <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectAll()">Select All</button>
             <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectNone()">Select None</button>
@@ -79,7 +74,9 @@
             </thead>
             <tr th:each="project: *{projects}">
                 <td>
-                    <a target="_blank" th:href="|https://webprotege.stanford.edu/#projects/${project.projectId}/edit/Classes|" th:text="${project.projectName}"></a>
+                    <a target="_blank"
+                       th:href="|https://webprotege.stanford.edu/#projects/${project.projectId}/edit/Classes|"
+                       th:text="${project.projectName}"></a>
                     <input type="hidden" th:field="*{projects[__${projectStat.index}__].projectName}"
                            th:value="${project.projectName}">
                 </td>
@@ -90,12 +87,16 @@
 
                 </td>
                 <td>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input"
-                                th:field="*{projects[__${projectStat.index}__].optOut}"
-                                th:value="${project.optOut}"/>
-                        Opt-out</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                               th:field="*{projects[__${projectStat.index}__].optOut}" value="false">
+                        <label class="form-check-label"
+                               th:field="*{projects[__${projectStat.index}__].optOut}">Included</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                               th:field="*{projects[__${projectStat.index}__].optOut}" value="true">
+                        <label class="form-check-label">Excluded</label>
                     </div>
                 </td>
             </tr>
