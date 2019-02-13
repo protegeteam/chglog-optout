@@ -60,15 +60,15 @@
         <label for="projectsList">Your Projects</label>
         <p>Please use the radio buttons to specify the projects that should be excluded from the WebProtege change history logs dataset.  Remember, only de-identified obfuscated versions of the change histories will be used for those projects that you allow us to include.  Further details are available here (opens in a new tab).</p>
         <div class="form-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectAll()">Select All</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectNone()">Select None</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectAll()">Include All</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectNone()">Exclude All</button>
         </div>
         <table id="projectsList" class="table table-sm">
             <thead class="thead-light">
             <tr>
                 <th>Project Name</th>
                 <th>Project Id</th>
-                <th>Selected (Opt-out)</th>
+                <th>Included/Excluded</th>
             </tr>
 
             </thead>
