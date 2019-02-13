@@ -78,26 +78,31 @@
             </thead>
             <tr th:each="project: *{projects}">
                 <td>
+                    <!--Project name as a link to WebProtege-->
                     <a target="_blank"
                        th:href="|https://webprotege.stanford.edu/#projects/${project.projectId}/edit/Classes|"
                        th:text="${project.projectName}"></a>
                     <input type="hidden" th:field="*{projects[__${projectStat.index}__].projectName}"
                            th:value="${project.projectName}">
+                    <!--ProjectId-->
+                    <div>
+                        <small class="text-muted" th:text="'Project Id: ' + ${project.projectId}"></small>
+                    </div><input type="hidden" th:field="*{projects[__${projectStat.index}__].projectId}"
+                           th:value="${project.projectId}">
                 </td>
                 <td>
-                    <span th:text="${project.projectId}"></span>
-                    <input type="hidden" th:field="*{projects[__${projectStat.index}__].projectId}"
-                           th:value="${project.projectId}">
 
+                    <!--Created At-->
                     <input type="hidden" th:field="*{projects[__${projectStat.index}__].createdAt}"
                            th:value="${project.createdAt}">
-
+                    <!--Modified At-->
                     <input type="hidden" th:field="*{projects[__${projectStat.index}__].modifiedAt}"
                            th:value="${project.modifiedAt}">
 
 
                 </td>
                 <td>
+                    <!--Include/Exclude-->
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" data-include type="radio"
                                th:field="*{projects[__${projectStat.index}__].optOut}" value="false">
