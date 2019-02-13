@@ -35,14 +35,14 @@
 </head>
 <body class="container">
 
-<h1>WebProtege De-identified Obfuscated Change History Log Publication Opt-Out</h1>
+<h2 style="text-align: center;padding:30px 10% 30px 10%;">Opt-Out Form for Publication of De-identified Obfuscated Change History Log of WebProtégé Projects</h2>
 
 <p>
     This page allows you to opt out of the publication of the de-identified and obfuscated change logs for some or all of
     the WebProtégé projects that you own. <strong>You must press the "Save My Inclusion/Exclusion Preferences" button at
     the
     bottom
-    of the page when you're done for your changes to take effect</strong>.
+    of the page when you're done for your elections to be registered</strong>.
 </p>
 
 <form class="form-vertical" method="post" action="#" th:action="@{/optout}" th:object="${optOutInfo}">
@@ -62,7 +62,7 @@
     </div>
     <div class="form-group">
         <label for="projectsList">Your Projects</label>
-        <p>Please use the radio buttons to specify the projects that should either be included or excluded from the WebProtege change history logs dataset.  Remember, only de-identified obfuscated versions of your project change histories will be used for those projects that you do allow us to include.  Further details are available here (opens in a new tab).</p>
+        <p>Please use the radio buttons to specify the projects that should either be included or excluded from the WebProtégé change history logs dataset.  Remember, only de-identified obfuscated versions of your project change histories will be used for those projects that you do allow us to include.  Further details are available here (opens in a new tab).</p>
         <div class="form-group">
             <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectAll()">Include All</button>
             <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectNone()">Exclude All</button>
