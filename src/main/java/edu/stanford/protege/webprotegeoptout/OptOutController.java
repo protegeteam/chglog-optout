@@ -53,6 +53,6 @@ public class OptOutController {
     @PostMapping("/optout")
     public String optoutSubmit(OptOutInfo optOutInfo) {
         repository.save(optOutInfo);
-        return "redirect:/optout/confirmation.html";
+        return "redirect:/confirmation.html";
     }
 }
