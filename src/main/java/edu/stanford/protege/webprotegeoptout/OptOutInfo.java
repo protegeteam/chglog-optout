@@ -27,7 +27,7 @@ public class OptOutInfo {
 
     private String comment;
 
-    private List<OptOutItem> projects;
+    private List<ProjectInfo> projects;
 
     public OptOutInfo() {
     }
@@ -36,7 +36,7 @@ public class OptOutInfo {
                       String userId,
                       String emailAddress,
                       String comment,
-                      List<OptOutItem> projects) {
+                      List<ProjectInfo> projects) {
         this.id = id;
         this.userId = userId;
         this.emailAddress = emailAddress;
@@ -56,7 +56,7 @@ public class OptOutInfo {
         return emailAddress;
     }
 
-    public List<OptOutItem> getProjects() {
+    public List<ProjectInfo> getProjects() {
         return projects;
     }
 
@@ -80,7 +80,7 @@ public class OptOutInfo {
         this.viewedAt = viewedAt;
     }
 
-    public void setProjects(List<OptOutItem> projects) {
+    public void setProjects(List<ProjectInfo> projects) {
         this.projects = projects;
     }
 
