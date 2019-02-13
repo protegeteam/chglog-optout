@@ -7,6 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="shortcut icon" type="image/x-icon" href="https://webprotege.stanford.edu/favicon.png">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
           integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
@@ -88,9 +90,12 @@
 
                 </td>
                 <td>
-                    <input type="checkbox" class="checkbox"
-                           th:field="*{projects[__${projectStat.index}__].optOut}"
-                           th:value="${project.optOut}"/>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input"
+                                th:field="*{projects[__${projectStat.index}__].optOut}"
+                                th:value="${project.optOut}"/>
+                        <label class="form-check-label">Opt-out</label>
+                    </div>
                 </td>
             </tr>
         </table>
