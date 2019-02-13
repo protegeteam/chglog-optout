@@ -13,6 +13,10 @@ public class ProjectInfo {
 
     private String projectName;
 
+    private String createdAt;
+
+    private String modifiedAt;
+
     private boolean optOut;
 
     public ProjectInfo() {
@@ -48,6 +52,22 @@ public class ProjectInfo {
 
     public void setOptOut(boolean optOut) {
         this.optOut = optOut;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getModifiedAt() {
+        return modifiedAt;
+    }
+
+    public void setModifiedAt(String modifiedAt) {
+        this.modifiedAt = modifiedAt;
     }
 
     @Override

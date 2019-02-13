@@ -37,11 +37,17 @@ public class OptOutController {
     @GetMapping("/optout/users/{id}")
     public String projects(Model model, @PathVariable(name = "id") String id) {
         var outInfoQueryResult = repository.findById(id);
+        // If we cannot find the record with the id then return a 404 response
         var optOutInfo = outInfoQueryResult.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        optOutInfo.setViewedAt(DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now()));
-        repository.save(optOutInfo);
+
+        updateViewedAtDateTime(optOutInfo);
         model.addAttribute("optOutInfo", optOutInfo);
         return "optout";
+    }
+
+    private void updateViewedAtDateTime(OptOutInfo optOutInfo) {
+        optOutInfo.setViewedAt(DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now()));
+        repository.save(optOutInfo);
     }
 
     @PostMapping("/optout")
