@@ -38,8 +38,10 @@
 <h1 th:text="#{title}"></h1>
 
 <p>
-    This page allows you to opt out of the publication of the de-identified and obfuscated change logs for some or all of
-    the WebProtégé projects that you own. You must <strong>press the "Save My Inclusion/Exclusion Preferences" button</strong> at
+    This page allows you to opt out of the publication of the de-identified and obfuscated change logs for some or all
+    of
+    the WebProtégé projects that you own. You must <strong>press the "Save My Inclusion/Exclusion Preferences"
+    button</strong> at
     the bottom of the page when you're done for your elections to be registered.
 </p>
 
@@ -51,16 +53,47 @@
     <input type="hidden" th:field="*{viewedAt}"/>
 
     <div class="form-group">
-        <label for="userId">User Name</label>
+        <label for="userId">WebProtégé User Name</label>
         <input type="text" id="userId" class="form-control" readonly th:field="*{userId}"/>
     </div>
     <div class="form-group">
-        <label for="emailAddress">Email Address</label>
+        <label for="emailAddress">WebProtégé Email Address</label>
         <input type="email" id="emailAddress" class="form-control" readonly th:field="*{emailAddress}"/>
     </div>
+
     <div class="form-group">
-        <label for="projectsList">Your Projects</label>
-        <p>Please use the radio buttons to specify the projects that should either be included or excluded from the WebProtégé change history logs dataset.  Remember, only de-identified obfuscated versions of your project change histories will be used for those projects that you do allow us to include.  Further details are available here (opens in a new tab).</p>
+        <label for="projectsList">Your WebProtégé Projects</label>
+        <p>
+            Please use the radio buttons in the table below to specify the projects that your either happy for us to <strong>include</strong>, or that you'd rather us <strong>exclude</strong> from the
+            WebProtégé change history logs dataset that we want to build.
+        </p>
+        <p>
+            Remember, <strong>only de-identified obfuscated versions</strong> of your project
+            change histories will be used <strong>for those projects that you do allow us to include</strong>. This means that published
+            change histories,
+        </p>
+        <ul>
+            <li>Will not contain project identifiers</li>
+            <li>Will not contain real usernames</li>
+            <li>Will not contain real dates or times</li>
+            <li>Will not contain real or meaningful class, property, individual or datatype names</li>
+            <li>Will not contain real or meaningful labels and other annotation values</li>
+            <li>Will not contain real or meaningful language tags</li>
+            <li>Will not contain any real or meaningful data that could be used to identify the domain modelled by the
+                project
+            <li>Will only preserve the sequence, logical and structural aspects of the change history, including the
+                high
+                level generic change types e.g. “AddedParent” and the generic OWL axioms types, e.g.
+                “AnnotationAssertion” or “SubClassOf”.
+            </li>
+        </ul>
+
+        <p>
+            Further details about our de-identification and obfuscation procedures are available on the <a
+                target="_blank"
+                href="https://protege.stanford.edu/studies/chglog/opt-out/">here</a>
+            (opens in a new tab).</p>
+
         <div class="form-group">
             <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectAll()">Include All</button>
             <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectNone()">Exclude All</button>
@@ -70,7 +103,7 @@
             <tr>
                 <th>Project name</th>
                 <th>Last modified</th>
-                <th>Included/Excluded</th>
+                <th>Include/Exclude</th>
             </tr>
 
             </thead>
@@ -106,12 +139,12 @@
                         <input class="form-check-input" data-include type="radio"
                                th:field="*{projects[__${projectStat.index}__].optOut}" value="false">
                         <label class="form-check-label"
-                               th:field="*{projects[__${projectStat.index}__].optOut}">Included</label>
+                               th:field="*{projects[__${projectStat.index}__].optOut}">Include</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" data-exclude type="radio"
                                th:field="*{projects[__${projectStat.index}__].optOut}" value="true">
-                        <label class="form-check-label">Excluded</label>
+                        <label class="form-check-label">Exclude</label>
                     </div>
                 </td>
             </tr>
@@ -119,7 +152,7 @@
     </div>
 
     <div class="form-group">
-        <label for="comments">Reasons for opting out or additional comments (Optional)</label>
+        <label for="comments">Reasons for excluding some or all projects, or any additional comments (Optional)</label>
         <textarea id="comments" class="form-control" th:field="*{comment}">Comment Text</textarea>
     </div>
 
