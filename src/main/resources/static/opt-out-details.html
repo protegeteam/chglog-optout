@@ -5,12 +5,30 @@
     <title>Publication of de-identified obfuscated WebProtégé change history logs for research purposes</title>
 
     <style type="text/css">
+        h1, h2 {
+            font-weight: bold;
+        }
         body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             margin: 2em;
         }
         p {
             line-height: 1.4em;
+        }
+        ol,ul {
+            margin: 1em;
+        }
+        li+li {
+            margin-top: 0.5em;
+        }
+        figure {
+            margin: 2em;
+            margin-left: 3em;
+        }
+        figcaption {
+            margin-top: 1em;
+            font-size:  0.8em;
+            color:      #909090;
         }
         .code {
             font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -55,6 +73,7 @@
 
 <figure>
     <img width="450px" height="357px" src="Aero-L1011-Changes.png" alt="Example Aero Changes"/>
+    <figcaption>An example of the change history for the Aero project as viewed in WebProtégé</figcaption>
 </figure>
 
 <p>As you can see, the plain change history records date/time, the user name of the author and the axioms additions and
@@ -118,6 +137,7 @@
 </ul>
 
 
+<figure>
 <div class="code json">
 <p>[</p>
 <p><span >  </span>{</p>
@@ -177,7 +197,8 @@
 <p><span >  </span>}</p>
 <p>]</p>
 </div>
-
+    <figcaption>De-identified obfuscated change history log example</figcaption>
+</figure>
 <h2>Why do we want to do this?</h2>
 
 <p>While there are many ontologies that are published online, the change histories for ontology projects are not usually
