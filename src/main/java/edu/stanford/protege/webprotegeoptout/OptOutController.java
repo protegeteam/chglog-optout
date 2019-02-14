@@ -35,7 +35,7 @@ public class OptOutController {
         this.repository = repository;
     }
 
-    @GetMapping("/optout/users/{id}")
+    @GetMapping("/opt-out/users/{id}")
     public String projects(Model model, @PathVariable(name = "id") String id) {
         var outInfoQueryResult = repository.findById(id);
         // If we cannot find the record with the id then return a 404 response
@@ -50,7 +50,7 @@ public class OptOutController {
         return "optout";
     }
 
-    @GetMapping("/optout/confirmation")
+    @GetMapping("/opt-out/confirmation")
     public String confirmation() {
         return "confirmation";
     }
@@ -60,9 +60,9 @@ public class OptOutController {
         repository.save(optOutInfo);
     }
 
-    @PostMapping("/optout")
+    @PostMapping("/opt-out")
     public String optoutSubmit(OptOutInfo optOutInfo) {
         repository.save(optOutInfo);
-        return "redirect:/optout/confirmation";
+        return "redirect:/opt-out/confirmation";
     }
 }
