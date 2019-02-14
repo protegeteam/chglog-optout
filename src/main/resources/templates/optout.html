@@ -103,7 +103,7 @@
             <tr>
                 <th>Project name</th>
                 <th>Last modified</th>
-                <th>Included/Excluded</th>
+                <th>Include/Exclude</th>
             </tr>
 
             </thead>
@@ -139,12 +139,12 @@
                         <input class="form-check-input" data-include type="radio"
                                th:field="*{projects[__${projectStat.index}__].optOut}" value="false">
                         <label class="form-check-label"
-                               th:field="*{projects[__${projectStat.index}__].optOut}">Included</label>
+                               th:field="*{projects[__${projectStat.index}__].optOut}">Include</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" data-exclude type="radio"
                                th:field="*{projects[__${projectStat.index}__].optOut}" value="true">
-                        <label class="form-check-label">Excluded</label>
+                        <label class="form-check-label">Exclude</label>
                     </div>
                 </td>
             </tr>
@@ -152,7 +152,7 @@
     </div>
 
     <div class="form-group">
-        <label for="comments">Reasons for opting out or additional comments (Optional)</label>
+        <label for="comments">Reasons for excluding some or all projects, or any additional comments (Optional)</label>
         <textarea id="comments" class="form-control" th:field="*{comment}">Comment Text</textarea>
     </div>
 
