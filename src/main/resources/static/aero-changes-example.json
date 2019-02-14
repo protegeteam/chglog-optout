@@ -1,0 +1,57 @@
+[
+  {
+    "rev": 876,
+    "revisionType": "AddedParent",
+    "offsetTime": 153716695029,
+    "offsetTimeInDays": 1779,
+    "userId": "U1",
+    "changeCount": 1,
+    "subjectsCount": 1,
+    "highLevelSummary": {
+      "revisionType": "AddedParent",
+      "message": "Added parent :nonuf-bajuk from :pirad-mudag",
+      "details": {
+        "child": ":pirad-mudag",
+        "parent": ":nonuf-bajuk"
+      }
+    },
+    "subjects": [
+      ":pirad-mudag"
+    ],
+    "changes": [
+      {
+        "operation": "ADD",
+        "axiom": "SubClassOf(:pirad-mudag :nonuf-bajuk)",
+        "axiomType": "SubClassOf"
+      }
+    ]
+  },
+  {
+    "rev": 711,
+    "revisionType": "AddedAnnotation",
+    "offsetTime": 153453257380,
+    "offsetTimeInDays": 1776,
+    "userId": "U1",
+    "changeCount": 1,
+    "subjectsCount": 1,
+    "highLevelSummary": {
+      "revisionType": "AddedAnnotation",
+      "message": "Added annotation (:luguv-lajuv  \"2f904bf863792898c7297a0272e9d0407ba678d699c24eea75669f2c3d4b7e7f\") to :pirad-mudag",
+      "details": {
+        "subject": ":pirad-mudag",
+        "property": ":luguv-lajuv",
+        "value": "\"2f904bf863792898c7297a0272e9d0407ba678d699c24eea75669f2c3d4b7e7f\""
+      }
+    },
+    "subjects": [
+      ":pirad-mudag"
+    ],
+    "changes": [
+      {
+        "operation": "ADD",
+        "axiom": "AnnotationAssertion(:luguv-lajuv :pirad-mudag \"2f904bf863792898c7297a0272e9d0407ba678d699c24eea75669f2c3d4b7e7f\"@L0)",
+        "axiomType": "AnnotationAssertion"
+      }
+    ]
+  }
+]
