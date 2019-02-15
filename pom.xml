@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>edu.stanford.protege</groupId>
-	<artifactId>webprotege-optout</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>webprotege-optout</name>
-	<description>Demo project for Spring Boot</description>
+	<artifactId>webprotege-chglog-optout</artifactId>
+	<version>0.9.0</version>
+	<name>webprotege-chglog-optout</name>
+	<description>Spring Boot WebProtege Change Log Publication Opt-out</description>
 
 	<properties>
 		<java.version>11</java.version>
