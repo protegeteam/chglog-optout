@@ -66,7 +66,7 @@ public class OptOutController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ids do not match");
         }
         repository.save(optOutInfo);
-        return "redirect:/opt-out/users/" + id + "/confirmation";
+        return "redirect:" + id + "/confirmation";
     }
 
     @GetMapping("/opt-out/details")
