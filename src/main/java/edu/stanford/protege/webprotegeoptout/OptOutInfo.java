@@ -32,18 +32,6 @@ public class OptOutInfo {
     public OptOutInfo() {
     }
 
-    public OptOutInfo(String id,
-                      String userId,
-                      String emailAddress,
-                      String comment,
-                      List<ProjectInfo> projects) {
-        this.id = id;
-        this.userId = userId;
-        this.emailAddress = emailAddress;
-        this.comment = comment;
-        this.projects = projects;
-    }
-
     public String getId() {
         return id;
     }
