@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.Instant;
@@ -26,6 +23,7 @@ import java.util.Optional;
  * 2019-02-11
  */
 @Controller
+@RequestMapping("/opt-out")
 public class OptOutController {
 
     private final OptOutDataRepository repository;
@@ -35,7 +33,7 @@ public class OptOutController {
         this.repository = repository;
     }
 
-    @GetMapping("/opt-out/users/{id}")
+    @GetMapping("/users/{id}")
     public String projects(Model model, @PathVariable(name = "id") String id) {
         var outInfoQueryResult = repository.findById(id);
 
@@ -50,12 +48,12 @@ public class OptOutController {
         return "optout";
     }
 
-    @GetMapping("/opt-out/users/{id}/confirmation")
+    @GetMapping("/users/{id}/confirmation")
     public String confirmation() {
         return "confirmation";
     }
 
-    @PostMapping("/opt-out/users/{id}")
+    @PostMapping("/users/{id}")
     public String optoutSubmit(@PathVariable(name = "id") String id, OptOutInfo optOutInfo) {
         if(!optOutInfo.getId().equals(id)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ids do not match");
@@ -64,12 +62,12 @@ public class OptOutController {
         return "redirect:" + id + "/confirmation";
     }
 
-    @GetMapping("/opt-out/details")
+    @GetMapping("/details")
     public String optoutDetails() {
         // Forwarding to static page
         return "forward:/opt-out/details/index.html";
     }
-    
+
     private static void sortProjectList(OptOutInfo optOutInfo) {
         var projectInfoComparator = Comparator.comparing(ProjectInfo::getModifiedAt).reversed();
         optOutInfo.getProjects().sort(projectInfoComparator);
