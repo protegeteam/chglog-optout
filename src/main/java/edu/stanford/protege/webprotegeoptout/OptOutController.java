@@ -34,7 +34,7 @@ public class OptOutController {
     }
 
     @GetMapping("/users/{id}")
-    public String projects(Model model, @PathVariable(name = "id") String id) {
+    public String usersGet(Model model, @PathVariable(name = "id") String id) {
         var outInfoQueryResult = repository.findById(id);
 
         // If we cannot find the record with the id then return a 404 response
@@ -49,14 +49,14 @@ public class OptOutController {
     }
 
     @PostMapping("/users/{id}")
-    public String optoutSubmit(@PathVariable(name = "id") String id, OptOutInfo optOutInfo) {
+    public String usersPost(@PathVariable(name = "id") String id, OptOutInfo optOutInfo) {
         if(!optOutInfo.getId().equals(id)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ids do not match");
         }
         repository.save(optOutInfo);
         return "redirect:" + id + "/confirmation";
     }
-    
+
     @GetMapping("/users/{id}/confirmation")
     public String confirmation() {
         return "confirmation";
@@ -64,7 +64,7 @@ public class OptOutController {
 
 
     @GetMapping("/details")
-    public String optoutDetails() {
+    public String details() {
         // Forwarding to static page
         return "forward:/opt-out/details/index.html";
     }
