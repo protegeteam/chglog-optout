@@ -38,13 +38,13 @@ public class OptOutController {
     @GetMapping("/opt-out/users/{id}")
     public String projects(Model model, @PathVariable(name = "id") String id) {
         var outInfoQueryResult = repository.findById(id);
+
         // If we cannot find the record with the id then return a 404 response
         var optOutInfo = outInfoQueryResult.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        updateViewedAtDateTime(optOutInfo);
+        updateViewedAtDateTime(repository, optOutInfo);
 
-        var projectInfoComparator = Comparator.comparing(ProjectInfo::getModifiedAt).reversed();
-        optOutInfo.getProjects().sort(projectInfoComparator);
+        sortProjectList(optOutInfo);
 
         model.addAttribute("optOutInfo", optOutInfo);
         return "optout";
@@ -53,11 +53,6 @@ public class OptOutController {
     @GetMapping("/opt-out/users/{id}/confirmation")
     public String confirmation() {
         return "confirmation";
-    }
-
-    private void updateViewedAtDateTime(OptOutInfo optOutInfo) {
-        optOutInfo.setViewedAt(DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now()));
-        repository.save(optOutInfo);
     }
 
     @PostMapping("/opt-out/users/{id}")
@@ -71,6 +66,17 @@ public class OptOutController {
 
     @GetMapping("/opt-out/details")
     public String optoutDetails() {
+        // Forwarding to static page
         return "forward:/opt-out/details/index.html";
+    }
+    
+    private static void sortProjectList(OptOutInfo optOutInfo) {
+        var projectInfoComparator = Comparator.comparing(ProjectInfo::getModifiedAt).reversed();
+        optOutInfo.getProjects().sort(projectInfoComparator);
+    }
+
+    private static void updateViewedAtDateTime(OptOutDataRepository repository, OptOutInfo optOutInfo) {
+        optOutInfo.setViewedAt(DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(ZonedDateTime.now()));
+        repository.save(optOutInfo);
     }
 }
