@@ -25,14 +25,6 @@ public class ProjectInfo {
     public ProjectInfo() {
     }
 
-    public ProjectInfo(String projectId,
-                       String projectName,
-                       boolean optOut) {
-        this.projectId = projectId;
-        this.projectName = projectName;
-        this.optOut = optOut;
-    }
-
     public String getProjectId() {
         return projectId;
     }
