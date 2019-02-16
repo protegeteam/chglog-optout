@@ -50,7 +50,7 @@ public class OptOutController {
         return "optout";
     }
 
-    @GetMapping("/opt-out/confirmation")
+    @GetMapping("/opt-out/users/{id}/confirmation")
     public String confirmation() {
         return "confirmation";
     }
@@ -60,9 +60,12 @@ public class OptOutController {
         repository.save(optOutInfo);
     }
 
-    @PostMapping("/opt-out")
-    public String optoutSubmit(OptOutInfo optOutInfo) {
+    @PostMapping("/opt-out/users/{id}")
+    public String optoutSubmit(@PathVariable(name = "id") String id, OptOutInfo optOutInfo) {
+        if(!optOutInfo.getId().equals(id)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ids do not match");
+        }
         repository.save(optOutInfo);
-        return "redirect:/opt-out/confirmation";
+        return "redirect:/opt-out/users/" + id + "/confirmation";
     }
 }
