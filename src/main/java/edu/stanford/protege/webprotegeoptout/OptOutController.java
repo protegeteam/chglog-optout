@@ -48,11 +48,6 @@ public class OptOutController {
         return "optout";
     }
 
-    @GetMapping("/users/{id}/confirmation")
-    public String confirmation() {
-        return "confirmation";
-    }
-
     @PostMapping("/users/{id}")
     public String optoutSubmit(@PathVariable(name = "id") String id, OptOutInfo optOutInfo) {
         if(!optOutInfo.getId().equals(id)) {
@@ -61,6 +56,12 @@ public class OptOutController {
         repository.save(optOutInfo);
         return "redirect:" + id + "/confirmation";
     }
+    
+    @GetMapping("/users/{id}/confirmation")
+    public String confirmation() {
+        return "confirmation";
+    }
+
 
     @GetMapping("/details")
     public String optoutDetails() {
