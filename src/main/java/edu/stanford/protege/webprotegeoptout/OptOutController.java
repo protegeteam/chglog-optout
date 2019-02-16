@@ -68,4 +68,9 @@ public class OptOutController {
         repository.save(optOutInfo);
         return "redirect:/opt-out/users/" + id + "/confirmation";
     }
+
+    @GetMapping("/opt-out/details")
+    public String optoutDetails() {
+        return "forward:/opt-out/details/index.html";
+    }
 }
