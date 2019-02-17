@@ -45,7 +45,7 @@
     }
 
     ol, ul {
-        margin: 1em;
+        margin: 0.5em;
     }
 
     li + li {
@@ -53,14 +53,26 @@
     }
 
     figure {
-        margin:      2em;
-        margin-left: 3em;
+        margin: 1em;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    figure img {
+        width: 100%;
+        height: auto;
+        max-width: 357px;
+        text-align: center;
     }
 
     figcaption {
         margin-top: 1em;
         font-size:  0.8em;
         color:      #909090;
+        text-align: center;
     }
 
     .code {
