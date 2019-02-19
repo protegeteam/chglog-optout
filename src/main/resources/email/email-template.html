@@ -177,12 +177,9 @@
         change history log it
         could be obfuscated as something completely different, like &ldquo;falab-taduk&rdquo;.  We leave built-in OWL entities, such as owl:Thing in plain text.
     </li>
-    <li>We replace all strings, numbers and other scalar value occurrences with strong irreversible salted hashes of the
-        values. In this case &ldquo;Whisper Liner&rdquo; would be replaced with something like
-        2f904bf863792898c7297a0272e9d0407ba678d699c24eea75669f2c3d4b7e7f. Note that, this hash cannot be decoded to
-        reveal the original string, &ldquo;Whisper Liner&rdquo;. Furthermore, if the string &ldquo;Whisper Liner&rdquo;
-        occurred in multiple project change history logs it would have a different hashed representation in each
-        de-identified obfuscated log.
+    <li>We replace all strings, numbers and other scalar value occurrences with alpha-numeric symbols of the form &ldquo;Vn&rdquo; where n is a hexadecimal encoded integer. In this case &ldquo;Whisper Liner&rdquo; is replaced with &ldquo;Vb8&rdquo;.  In a single change history log, every occurrence of &ldquo;Whisper Liner&rdquo; would be represented by the same alpha-numeric symbol.  However, if the string &ldquo;Whisper Liner&rdquo;
+        occurred in multiple project change history logs it may have a different alpha-numeric symbol in each
+        de-identified obfuscated change history log.
     </li>
     <li>We replace all language tags with alphanumeric identifiers so that the language tag &ldquo;@en&rdquo; would
         become &ldquo;@L0&rdquo;. This removes any concrete details of the languages used by a project.
@@ -320,7 +317,7 @@
         </p>
 
         <p class="p3"><span><span>&nbsp; &nbsp; &nbsp; </span></span><span class="key"><b>&quot;message&quot;</b></span><span>: </span><b>&quot;Added
-            annotation (:luguv-lajuv<span>&nbsp; </span></b><span class="escape"><b>&quot;</b></span><b>2f904bf863792898c7297a0272e9d0407ba678d699c24eea75669f2c3d4b7e7f</b><span
+            annotation (:luguv-lajuv<span>&nbsp; </span></b><span class="escape"><b>&quot;</b></span><b>Vb8</b><span
                 class="escape"><b>&quot;</b></span><b>) to :pirad-mudag&quot;</b><span>,</span></p>
 
         <p><span>&nbsp; &nbsp; &nbsp; </span><span class="key"><b>&quot;details&quot;</b></span>: {</p>
@@ -334,7 +331,7 @@
 
         <p class="p3"><span><span>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span
                 class="key"><b>&quot;value&quot;</b></span><span>: </span><b>&quot;</b><span
-                class="escape"><b>&quot;</b></span><b>2f904bf863792898c7297a0272e9d0407ba678d699c24eea75669f2c3d4b7e7f</b><span
+                class="escape"><b>&quot;</b></span><b>Vb8</b><span
                 class="escape"><b>&quot;</b></span><b>&quot;</b></p>
 
         <p class="p3"><b><span>&nbsp; &nbsp; &nbsp; </span></b><span>}</span></p>
@@ -356,7 +353,7 @@
 
         <p class="p3"><span><span>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span
                 class="key"><b>&quot;axiom&quot;</b></span><span>: </span><b>&quot;AnnotationAssertion(:luguv-lajuv
-            :pirad-mudag </b><span class="escape"><b>&quot;</b></span><b>2f904bf863792898c7297a0272e9d0407ba678d699c24eea75669f2c3d4b7e7f</b><span
+            :pirad-mudag </b><span class="escape"><b>&quot;</b></span><b>Vb8</b><span
                 class="escape"><b>&quot;</b></span><b>@L0)&quot;</b><span>,</span></p>
 
         <p class="p3"><span><span>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span
