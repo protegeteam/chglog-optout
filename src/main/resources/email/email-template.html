@@ -169,13 +169,13 @@
         took place. In this case, the fact the changes were made on August 28th and August 31st would not be
         recoverable.
     </li>
-    <li>We replace entity names with gibberish/meaningless (but pronounceable) names, so in this example, &ldquo;L1011&rdquo;
+    <li>We replace entity IRIs (identifiers) with gibberish/meaningless (but pronounceable) names, so in this example, the IRI for &ldquo;L1011&rdquo;
         is
         replaced with &ldquo;pirad-mudag&rdquo; and &ldquo;skos:altLabel&rdquo; with &ldquo;luguv-lajuv&rdquo;. Note
         that these gibberish names are scoped to a particular change history log. Thus &ldquo;skos:altLabel&rdquo; in one
         project history change history log might be obfuscated as &ldquo;pirad-mudag&rdquo;, but in another project
         change history log it
-        could be obfuscated as something completely different, like &ldquo;falab-taduk&rdquo;.  We do not obfuscate built-in OWL entities, such as owl:Thing.
+        could be obfuscated as something completely different, like &ldquo;falab-taduk&rdquo;.  We do not obfuscate IRIs for built-in OWL entities, such as owl:Thing.
     </li>
     <li>We replace all strings, numbers and other scalar value occurrences with alpha-numeric symbols of the form &ldquo;Vn&rdquo; where n is a randomly generated hexadecimal encoded integer. In this case &ldquo;Whisper Liner&rdquo; is replaced with &ldquo;V17b4b80d&rdquo;.  In a single change history log, every occurrence of &ldquo;Whisper Liner&rdquo; is represented by the same alpha-numeric symbol.  However, if the string &ldquo;Whisper Liner&rdquo;
         occurs in multiple project change history logs it may have a different alpha-numeric symbol in each
