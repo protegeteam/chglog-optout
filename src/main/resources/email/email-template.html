@@ -169,13 +169,13 @@
         took place. In this case, the fact the changes were made on August 28th and August 31st would not be
         recoverable.
     </li>
-    <li>We replace all entity names with gibberish/meaningless (but pronounceable) names, so in this example, &ldquo;L1011&rdquo;
+    <li>We replace entity names with gibberish/meaningless (but pronounceable) names, so in this example, &ldquo;L1011&rdquo;
         is
         replaced with &ldquo;pirad-mudag&rdquo; and &ldquo;skos:altLabel&rdquo; with &ldquo;luguv-lajuv&rdquo;. Note
         that these gibberish names are scoped to a particular change history log. Thus &ldquo;skos:altLabel&rdquo; in one
         project history change history log might be obfuscated as &ldquo;pirad-mudag&rdquo;, but in another project
         change history log it
-        could be obfuscated as something completely different, like &ldquo;falab-taduk&rdquo;.
+        could be obfuscated as something completely different, like &ldquo;falab-taduk&rdquo;.  We leave built-in OWL entities, such as owl:Thing in plain text.
     </li>
     <li>We replace all strings, numbers and other scalar value occurrences with strong irreversible salted hashes of the
         values. In this case &ldquo;Whisper Liner&rdquo; would be replaced with something like
