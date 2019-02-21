@@ -66,12 +66,12 @@ public class ProjectInfo {
     }
 
     public String getFormattedModifiedAt() {
-        var dateTimeFormatter = DateTimeFormatter.ofPattern("MMM d yyyy");
+        var dateTimeFormatter = DateTimeFormatter.ofPattern("MMM d, yyyy");
         return OffsetDateTime.parse(getModifiedAt()).format(dateTimeFormatter);
     }
 
     public String getFormattedCreatedAt() {
-        var dateTimeFormatter = DateTimeFormatter.ofPattern("MMM d yyyy");
+        var dateTimeFormatter = DateTimeFormatter.ofPattern("MMM d, yyyy");
         return OffsetDateTime.parse(getCreatedAt()).format(dateTimeFormatter);
     }
 
