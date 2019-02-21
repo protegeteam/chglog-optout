@@ -75,7 +75,6 @@
             <thead class="thead-light">
             <tr>
                 <th>Project name</th>
-                <th>Created</th>
                 <th>Last modified</th>
                 <th>Opt-out</th>
             </tr>
@@ -94,16 +93,16 @@
                            th:value="${project.projectId}">
                 </td>
                 <td>
-                    <!--Created At-->
-                    <span th:text="${project.getFormattedCreatedAt()}"></span>
-                    <input type="hidden" th:field="*{projects[__${projectStat.index}__].createdAt}"
-                           th:value="${project.createdAt}">
-                </td>
-                <td>
-                    <span th:text="${project.getFormattedModifiedAt()}"></span>
-                    <!--Modified At-->
-                    <input type="hidden" th:field="*{projects[__${projectStat.index}__].modifiedAt}"
-                           th:value="${project.modifiedAt}">
+
+                    <div><span th:text="${project.getFormattedModifiedAt()}"></span>
+                        <!--Modified At-->
+                        <input type="hidden" th:field="*{projects[__${projectStat.index}__].modifiedAt}"
+                               th:value="${project.modifiedAt}"></div>
+
+                    <!-- Created At -->
+                    <div class="small text-muted"><span th:text="'(Created ' + ${project.getFormattedCreatedAt()} + ')'"></span>
+                        <input type="hidden" th:field="*{projects[__${projectStat.index}__].createdAt}"
+                               th:value="${project.createdAt}"></div>
 
 
                 </td>
