@@ -24,11 +24,11 @@
 
     <script>
         function selectAll() {
-            $('[data-include]').prop("checked", true);
+            $('[data-opt-out]').prop("checked", true);
         }
 
         function selectNone() {
-            $('[data-exclude]').prop("checked", true);
+            $('[data-opt-out]').prop("checked", false);
         }
     </script>
 
@@ -77,7 +77,7 @@
             <tr>
                 <th>Project name</th>
                 <th>Last modified</th>
-                <th>Opt-out/Leave In</th>
+                <th>Opt-out</th>
             </tr>
 
             </thead>
@@ -110,15 +110,10 @@
                 <td>
                     <!--Include/Exclude-->
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" data-include type="radio"
+                        <input class="form-check-input" data-opt-out type="checkbox"
                                th:field="*{projects[__${projectStat.index}__].optOut}" value="false">
                         <label class="form-check-label"
                                th:field="*{projects[__${projectStat.index}__].optOut}">Opt-out</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" data-exclude type="radio"
-                               th:field="*{projects[__${projectStat.index}__].optOut}" value="true">
-                        <label class="form-check-label">Leave in</label>
                     </div>
                 </td>
             </tr>
