@@ -64,18 +64,18 @@
     <div class="form-group">
         <label for="projectsList">Your WebProtégé Projects</label>
         <p>
-            Please use the radio buttons in the table below to specify the projects that your either happy for us to <strong>include</strong>, or that you'd rather us <strong>exclude</strong> from the
-            WebProtégé change history logs dataset that we want to build.
+            Please use the check boxes in the table below to specify the projects for which you'd like to opt-out.
         </p>
 
         <div class="form-group">
             <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectAll()">Opt-out of all</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectNone()">Reset (Leave all in)</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectNone()">Reset (Don't opt-out of any)</button>
         </div>
         <table id="projectsList" class="table table-sm">
             <thead class="thead-light">
             <tr>
                 <th>Project name</th>
+                <th>Created</th>
                 <th>Last modified</th>
                 <th>Opt-out</th>
             </tr>
@@ -90,17 +90,17 @@
                     <input type="hidden" th:field="*{projects[__${projectStat.index}__].projectName}"
                            th:value="${project.projectName}">
                     <!--ProjectId-->
-                    <div>
-                        <small class="text-muted" th:text="'Created: ' + ${project.getFormattedCreatedAt()}"></small>
-                    </div>
                     <input type="hidden" th:field="*{projects[__${projectStat.index}__].projectId}"
                            th:value="${project.projectId}">
                 </td>
                 <td>
-                    <span th:text="${project.getFormattedModifiedAt()}"></span>
                     <!--Created At-->
+                    <span th:text="${project.getFormattedCreatedAt()}"></span>
                     <input type="hidden" th:field="*{projects[__${projectStat.index}__].createdAt}"
                            th:value="${project.createdAt}">
+                </td>
+                <td>
+                    <span th:text="${project.getFormattedModifiedAt()}"></span>
                     <!--Modified At-->
                     <input type="hidden" th:field="*{projects[__${projectStat.index}__].modifiedAt}"
                            th:value="${project.modifiedAt}">
@@ -112,7 +112,7 @@
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" data-opt-out type="checkbox"
                                th:field="*{projects[__${projectStat.index}__].optOut}" value="false">
-                        <label class="form-check-label"
+                        <label th:for="|projects__${projectStat.index}__.optOut1|" class="form-check-label"
                                th:field="*{projects[__${projectStat.index}__].optOut}">Opt-out</label>
                     </div>
                 </td>
