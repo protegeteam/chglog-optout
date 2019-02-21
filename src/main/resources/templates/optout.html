@@ -69,15 +69,15 @@
         </p>
 
         <div class="form-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectAll()">Include All</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectNone()">Exclude All</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectAll()">Opt-out of all</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectNone()">Reset (Leave all in)</button>
         </div>
         <table id="projectsList" class="table table-sm">
             <thead class="thead-light">
             <tr>
                 <th>Project name</th>
                 <th>Last modified</th>
-                <th>Include/Exclude</th>
+                <th>Opt-out/Leave In</th>
             </tr>
 
             </thead>
@@ -113,12 +113,12 @@
                         <input class="form-check-input" data-include type="radio"
                                th:field="*{projects[__${projectStat.index}__].optOut}" value="false">
                         <label class="form-check-label"
-                               th:field="*{projects[__${projectStat.index}__].optOut}">Include</label>
+                               th:field="*{projects[__${projectStat.index}__].optOut}">Opt-out</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" data-exclude type="radio"
                                th:field="*{projects[__${projectStat.index}__].optOut}" value="true">
-                        <label class="form-check-label">Exclude</label>
+                        <label class="form-check-label">Leave in</label>
                     </div>
                 </td>
             </tr>
