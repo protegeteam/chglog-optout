@@ -53,12 +53,18 @@
     <input type="hidden" th:field="*{viewedAt}"/>
 
     <div class="form-group">
-        <label for="userId">WebProtégé User Name</label>
-        <input type="text" id="userId" class="form-control-plaintext" readonly th:field="*{userId}"/>
+        <label for="userId">Your WebProtégé User Name</label>
+        <input type="text" id="userId" class="form-control disabled" readonly th:field="*{userId}"/>
+        <small class="form-text text-muted">
+            We've filled this out for you.  You can opt-out for projects associated with this user name.
+        </small>
     </div>
     <div class="form-group">
-        <label for="emailAddress">WebProtégé Email Address</label>
-        <input type="email" id="emailAddress" class="form-control-plaintext" readonly th:field="*{emailAddress}"/>
+        <label for="emailAddress">Your WebProtégé Email</label>
+        <input type="email" id="emailAddress" class="form-control disabled" readonly th:field="*{emailAddress}"/>
+        <small class="form-text text-muted">
+            We've filled this out for you.  This is the email address associated with your WebProtégé account.
+        </small>
     </div>
 
     <div class="form-group">
