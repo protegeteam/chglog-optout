@@ -104,6 +104,14 @@
     .escape {
         color: #00006d
     }
+
+        .text-muted {
+            color: gray;
+        }
+
+        .text-small {
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -205,35 +213,43 @@
 <p>Taking the above plain change history log as an example, to de-identify and obfuscate it,</p>
 
 <ol>
-    <li>We remove the usernames of authors and replace them with alphanumeric identifiers. In this example we replace
-        &ldquo;M
-        Horridge&rdquo; with &ldquo;U1&rdquo;.
+    <li>We replace author user names with alphanumeric identifiers. In this example we replace
+        &ldquo;M Horridge&rdquo; with &ldquo;U1&rdquo;.
     </li>
-    <li>We remove all date time details and replace these with offset timestamps, which can be used to calculate the
+    <li>We replace real dates &amp; times with offset timestamps.  In this example, August 28th is replaced with 153453257380, which represents 1776 days since the project was created.
+        <div class="text-muted text-small">Offset timestamps can be used to calculate the
         number of milliseconds between changes, but cannot be used to identify the actual date or time that the changes
         took place. In this case, the fact the changes were made on August 28th and August 31st would not be
-        recoverable.
+        recoverable.</div>
     </li>
-    <li>We replace entity IRIs (identifiers) with gibberish/meaningless (but pronounceable) names, so in this example,
+    <li>We replace entity IRIs (identifiers) with gibberish/meaningless (but pronounceable) names.
+        In this example,
         the IRI for &ldquo;L1011&rdquo;
         is
-        replaced with &ldquo;pirad-mudag&rdquo; and &ldquo;skos:altLabel&rdquo; with &ldquo;luguv-lajuv&rdquo;. Note
+        replaced with &ldquo;pirad-mudag&rdquo; and &ldquo;skos:altLabel&rdquo; with &ldquo;luguv-lajuv&rdquo;.
+        <div class="text-small text-muted">
+        Note
         that these gibberish names are scoped to a particular change history log. Thus &ldquo;skos:altLabel&rdquo; in
         one
         project history change history log might be obfuscated as &ldquo;pirad-mudag&rdquo;, but in another project
         change history log it
         could be obfuscated as something completely different, like &ldquo;falab-taduk&rdquo;. We do not obfuscate IRIs
-        for built-in OWL entities, such as owl:Thing.
+            for built-in OWL entities, such as owl:Thing.</div>
     </li>
     <li>We replace all strings, numbers and other scalar value occurrences with alpha-numeric symbols of the form
-        &ldquo;Vn&rdquo; where n is a randomly generated hexadecimal encoded integer. In this case &ldquo;Whisper Liner&rdquo;
-        is replaced with &ldquo;V17b4b80d&rdquo;. In a single change history log, every occurrence of &ldquo;Whisper
+        &ldquo;Vn&rdquo; where n is a randomly generated hexadecimal encoded integer.
+        In this example &ldquo;Whisper Liner&rdquo;
+        is replaced with &ldquo;V17b4b80d&rdquo;.
+        <div class="text-small text-muted">
+        In a single change history log, every occurrence of &ldquo;Whisper
         Liner&rdquo; is represented by the same alpha-numeric symbol. However, if the string &ldquo;Whisper Liner&rdquo;
         occurs in multiple project change history logs it may have a different alpha-numeric symbol in each
-        de-identified, obfuscated change history log.
+            de-identified, obfuscated change history log.</div>
     </li>
-    <li>We replace all language tags with alphanumeric identifiers so that the language tag &ldquo;@en&rdquo; would
-        become &ldquo;@L0&rdquo;. This removes any concrete details of the languages used by a project.
+    <li>We replace all language tags with alphanumeric identifiers.  In this example the language tag &ldquo;@en&rdquo; is
+            replaced with &ldquo;@L0&rdquo;.
+        <div class="text-small text-muted">
+        This removes any concrete details of the languages used by a project.</div>
     </li>
 </ol>
 
