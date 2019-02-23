@@ -221,11 +221,11 @@
     <li>We replace author user names with alphanumeric identifiers. In this example we replace
         &ldquo;M Horridge&rdquo; with &ldquo;U1&rdquo;.
     </li>
-    <li>We replace real dates &amp; times with offset timestamps.  In this example, August 28th is replaced with 153453257380, which represents 1776 days since the project was created.
+    <li>We replace real dates &amp; times with offset timestamps.  In this example, August 28th is replaced with 153453257380ms, which represents 1776 days since the project was created.
         <div class="text-muted text-small">Offset timestamps can be used to calculate the
         number of milliseconds between changes, but cannot be used to identify the actual date or time that the changes
         took place. In this case, the fact the changes were made on August 28th and August 31st would not be
-        recoverable.</div>
+        recoverable from this data.</div>
     </li>
     <li>We replace entity IRIs (identifiers) with gibberish/meaningless (but pronounceable) names.
         In this example,
