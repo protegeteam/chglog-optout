@@ -22,6 +22,8 @@ public class ProjectInfo {
 
     private boolean optOut;
 
+    private boolean inTrash;
+
     public ProjectInfo() {
     }
 
@@ -75,8 +77,16 @@ public class ProjectInfo {
         return OffsetDateTime.parse(getCreatedAt()).format(dateTimeFormatter);
     }
 
+    public boolean isInTrash() {
+        return inTrash;
+    }
+
+    public void setInTrash(boolean inTrash) {
+        this.inTrash = inTrash;
+    }
+
     @Override
     public String toString() {
-        return new ToStringCreator("ProjectInfo").append("projectId", projectId).append("projectName", projectName).append("optOut", optOut).toString();
+        return new ToStringCreator("ProjectInfo").append("projectId", projectId).append("projectName", projectName).append("optOut", optOut).append("inTrash", inTrash).toString();
     }
 }

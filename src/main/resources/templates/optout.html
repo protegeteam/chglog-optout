@@ -89,11 +89,16 @@
             <tr th:each="project: *{projects}">
                 <td>
                     <!--Project name as a link to WebProtege-->
-                    <a target="_blank"
-                       th:href="|https://webprotege.stanford.edu/#projects/${project.projectId}/edit/Classes|"
-                       th:text="${project.projectName}"></a>
+                    <div><a target="_blank"
+                            th:href="|https://webprotege.stanford.edu/#projects/${project.projectId}/edit/Classes|"
+                            th:text="${project.projectName}"></a></div>
+                    <div class="small text-muted" th:if="${project.inTrash}" th:text="|In trash|">
+
+                    </div>
                     <input type="hidden" th:field="*{projects[__${projectStat.index}__].projectName}"
                            th:value="${project.projectName}">
+                    <input type="hidden" th:field="*{projects[__${projectStat.index}__].inTrash}"
+                           th:value="${project.inTrash}">
                     <!--ProjectId-->
                     <input type="hidden" th:field="*{projects[__${projectStat.index}__].projectId}"
                            th:value="${project.projectId}">
