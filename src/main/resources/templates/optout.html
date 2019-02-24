@@ -106,7 +106,7 @@
                                th:value="${project.modifiedAt}"></div>
 
                     <!-- Created At -->
-                    <div class="small text-muted"><span th:text="'(Created ' + ${project.getFormattedCreatedAt()} + ')'"></span>
+                    <div class="small text-muted"><span th:text="'Created ' + ${project.getFormattedCreatedAt()}"></span>
                         <input type="hidden" th:field="*{projects[__${projectStat.index}__].createdAt}"
                                th:value="${project.createdAt}"></div>
 
