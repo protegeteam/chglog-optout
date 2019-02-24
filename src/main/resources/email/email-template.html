@@ -53,17 +53,17 @@
     .figure {
         margin:         1em;
         padding:        0;
-        display:        flex;
-        flex-direction: column;
-        align-items:    center;
+        display:        block;
     }
 
 
     .figure-img {
+        margin-right: auto;
+        margin-left: auto;
         width:      100%;
         max-height: 357px;
         max-width:  450px;
-        text-align: center;
+        display: block;
     }
 
     .figure-caption {
@@ -71,6 +71,7 @@
         font-size:  0.8em;
         color:      #909090;
         text-align: center;
+        display: block;
     }
 
     .code {
@@ -269,7 +270,7 @@
 </p>
 
 
-<figure>
+<figure class="figure">
     <div class="code json">
         <p>[</p>
 
@@ -436,7 +437,7 @@
         <p>]</p>
     </div>
 
-    <figcaption>De-identified, obfuscated change history log example</figcaption>
+    <figcaption class="figure-caption">De-identified, obfuscated change history log example</figcaption>
 </figure>
 
 
