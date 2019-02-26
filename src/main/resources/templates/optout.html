@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>WebProtégé Dataset Opt-out</title>
+    <title>Opt Out form for WebProtégé Dataset Publication</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,7 +40,7 @@
 <p>
     This page allows you to opt out of the publication of the de-identified and obfuscated change logs for some or all
     of
-    the WebProtégé projects that you own. You must <strong>press the "Save My Opt-out Preferences"
+    the WebProtégé projects that you own. You must <strong>press the "Save My Opt out Preferences"
     button</strong> at
     the bottom of the page when you're done for your preferences to be saved.
 </p>
@@ -56,7 +56,7 @@
         <label for="userId">Your WebProtégé User Name</label>
         <input type="text" id="userId" class="form-control disabled" readonly th:field="*{userId}"/>
         <small class="form-text text-muted">
-            We've filled this out for you.  You can opt-out for projects associated with this user name.
+            We've filled this out for you.  You can opt out for projects associated with this user name.
         </small>
     </div>
     <div class="form-group">
@@ -70,19 +70,19 @@
     <div class="form-group">
         <label for="projectsList">Your WebProtégé Projects</label>
         <p>
-            Please use the check boxes in the table below to specify the projects for which you'd like to opt-out.
+            Please use the check boxes in the table below to specify the projects for which you'd like to opt out.
         </p>
 
         <div class="form-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectAll()"><span>Select All</span> (Opt-out of all)</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectNone()"><span>Clear All</span> (Don't opt-out of any)</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectAll()"><span>Select All</span> (Opt out of all)</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectNone()"><span>Clear All</span> (Don't opt out of any)</button>
         </div>
         <table id="projectsList" class="table table-sm">
             <thead class="thead-light">
             <tr>
                 <th>Project name</th>
                 <th>Last modified</th>
-                <th>Opt&#8209;out</th>
+                <th>Opt out</th>
             </tr>
 
             </thead>
@@ -123,7 +123,7 @@
                         <input class="form-check-input" data-opt-out type="checkbox"
                                th:field="*{projects[__${projectStat.index}__].optOut}" value="false">
                         <label th:for="|projects__${projectStat.index}__.optOut1|" class="form-check-label"
-                               th:field="*{projects[__${projectStat.index}__].optOut}">Opt&#8209;out</label>
+                               th:field="*{projects[__${projectStat.index}__].optOut}">Opt out</label>
                     </div>
                 </td>
             </tr>
@@ -136,7 +136,7 @@
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Save My Opt-out Preferences" class="btn btn-success"/>
+        <input type="submit" value="Save My Opt out Preferences" class="btn btn-success"/>
     </div>
 </form>
 
